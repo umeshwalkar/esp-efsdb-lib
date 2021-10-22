@@ -1,0 +1,14 @@
+QEFSDB			KEYWORD1
+
+begin			KEYWORD2
+clear			KEYWORD2
+flush			KEYWORD2
+count			KEYWORD2
+setMaxRecordLimit	KEYWORD2
+setRecordSize		KEYWORD2
+setFileSizeLimit	KEYWORD2
+setRollOver		KEYWORD2
+getRecordSize		KEYWORD2
+getMaxRecordLimit	KEYWORD2
+get			KEYWORD2
+push			KEYWORD2
