@@ -3,6 +3,7 @@
 
 #include <Arduino.h>
 #include <fs.h>
+#include "HardwareSerial.h"
 
 #if !defined(ESP8266) && !defined(ESP32)
 #error "Only ESP8266 and ESP32 architecture supported!!!"
@@ -60,14 +61,14 @@ public:
 
     /**
         @fn ~ESPEFSDB();
-        @brief This is de-constructor. 
+        @brief This is de-constructor.
         @remark calling closing procedures.
     */
     ~ESPEFSDB();
 
     /**
         @fn bool begin()
-        @brief This function initiates logger   
+        @brief This function initiates logger
         @return true-success, false-fail
         @remark Start the Filesystem and then call this function before starting calling anyother operations.
     */
@@ -176,7 +177,7 @@ public:
     /**
         @fn bool getLogHeader(log_info_t *logInfo)
         @brief This function fetches the log header.
-        @param log_info_t *logInfo a pointer to log header  
+        @param log_info_t *logInfo a pointer to log header
         @return true-success, false-fail
         @remark consider logInfo valid if this function returs true.
     */
@@ -184,11 +185,28 @@ public:
 
     /**
         @fn int getLastError()
-        @brief This function returns error code of last operation.   
+        @brief This function returns error code of last operation.
         @return integer error code.
-        @remark 
+        @remark
     */
     int getLastError();
+
+    /**
+        @fn void setDebugPort(HardwareSerial *SerialPort, bool debugEnable = false)
+        @brief This function takes serial port.
+        @param HardwareSerial *SerialPort pointer to Serial port
+        @param bool debugEnable, true = enabled, false = disabled
+        @remark
+    */
+    void setDebugPort(HardwareSerial *SerialPort, bool debugEnable = false);
+
+    /**
+        @fn void setDebug(bool debugEnable)
+        @brief This function takes serial port.
+        @param bool debugEnable, true = enabled, false = disabled
+        @remark
+    */
+    void setDebug(bool debugEnable);
 
 protected:
     /**
@@ -235,6 +253,16 @@ protected:
         last operation error code
     */
     unsigned char _errorCode;
+
+    /**
+        debug serial port
+    */
+    HardwareSerial *_debugPort;
+
+    /**
+        debug enable
+    */
+    bool _debugEnabled;
 };
 
 #endif // ESP_EFSDB_H
