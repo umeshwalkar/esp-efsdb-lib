@@ -9,3 +9,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [1.0.1] 2022-03-12
 - BugFix. intialized varibles in constructor.
 - added functionality to enable/disable debugging in runtime.
+- BugFix. database full error on restart.
