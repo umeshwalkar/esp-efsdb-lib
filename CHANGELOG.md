@@ -13,3 +13,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [2.0.1] 2022-11-10
 - compiled for aurduino core v2.0.5 and with platformIO v5.2.0
+
+## [2.0.2] 2024-01-06
+- compiled for aurduino core v2.0.14 and with platformIO v6.5.0
